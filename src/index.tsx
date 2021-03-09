@@ -5,7 +5,6 @@ import App from "./App";
 import store from "./app/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
-declare module "*.png";
 
 ReactDOM.render(
   <React.StrictMode>
