@@ -22,6 +22,9 @@ const headerStyles: any = {
         display: 'flex',
         marginRight: '10px',
     },
+    headerInput: {
+        width: '100%',
+    },
     dropDownIcon: {
         marginLeft: 'auto',
     },

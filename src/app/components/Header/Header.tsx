@@ -30,7 +30,10 @@ const Header: React.FC<IHeader> = (props) => {
           <IconButton>
             <SearchIcon />
           </IconButton>
-          <InputBase placeholder="Search mail" />
+          <InputBase
+            placeholder="Search mail"
+            className={classes.headerInput}
+          />
           <IconButton className={classes.dropDownIcon}>
             <ArrowDropDownIcon />
           </IconButton>
