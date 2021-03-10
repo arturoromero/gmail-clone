@@ -20,7 +20,7 @@ const headerStyles: any = {
         backgroundColor: '#f1f3f4',
         boxShadow: 'none',
         display: 'flex',
-        marginRight: '10px',
+        margin: '0 10px 0 0',
         borderRadius: '8px',
     },
     headerInput: {
