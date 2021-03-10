@@ -21,12 +21,18 @@ const headerStyles: any = {
         boxShadow: 'none',
         display: 'flex',
         marginRight: '10px',
+        borderRadius: '8px',
     },
     headerInput: {
         width: '100%',
     },
     dropDownIcon: {
         marginLeft: 'auto',
+    },
+    searchbarIcons: {
+        width:' 36px',
+        height: '36px',
+        margin: '6px',
     },
     logoAlt: {
         maxHeight: '32px',
@@ -44,6 +50,7 @@ const headerStyles: any = {
         width: '134px',
         borderRadius:'8px',
         boxShadow: 'none',
+        marginLeft: '6px',
     },
     avatarWrapper: {
         display: 'inline-block',

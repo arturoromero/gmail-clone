@@ -19,27 +19,29 @@ const Header: React.FC<IHeader> = (props) => {
   const classes = useStyles();
   return (
     <Grid container className={classes.container}>
-      <Grid xs={2} className={classes.header_left}>
+      <Grid item xs={2} className={classes.header_left}>
         <IconButton className={classes.menuIcon}>
           <MenuIcon />
         </IconButton>
-        <img src={GmailLogo} className={classes.logo} />
+        <img alt="gmail logo" src={GmailLogo} className={classes.logo} />
       </Grid>
-      <Grid xs={7} className={classes.header_middle}>
+      <Grid item xs={7} className={classes.header_middle}>
         <Paper component="div" className={classes.inputbar}>
-          <IconButton>
+          <IconButton className={classes.searchbarIcons}>
             <SearchIcon />
           </IconButton>
           <InputBase
             placeholder="Search mail"
             className={classes.headerInput}
           />
-          <IconButton className={classes.dropDownIcon}>
+          <IconButton
+            className={(classes.dropDownIcon, classes.searchbarIcons)}
+          >
             <ArrowDropDownIcon />
           </IconButton>
         </Paper>
       </Grid>
-      <Grid xs={3} className={classes.header_right}>
+      <Grid item xs={3} className={classes.header_right}>
         <IconButton>
           <HelpOutlineIcon />
         </IconButton>
@@ -51,9 +53,14 @@ const Header: React.FC<IHeader> = (props) => {
         </IconButton>
         <Paper className={classes.userMenuContainer}>
           <Box className={classes.avatarWrapper}>
-            <img src={GmailLogoAlt} className={classes.logoAlt} />
             <img
-              src="https://i.pravatar.cc/300"
+              alt="gmail alt logo"
+              src={GmailLogoAlt}
+              className={classes.logoAlt}
+            />
+            <img
+              alt="avatar"
+              src="https://i.pravatar.cc/100"
               className={classes.randomAvatar}
             />
           </Box>
