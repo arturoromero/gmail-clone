@@ -27,14 +27,16 @@ const Header: React.FC<IHeader> = (props) => {
       </Grid>
       <Grid xs={7} className={classes.header_middle}>
         <Paper component="div" className={classes.inputbar}>
-          <IconButton>
+          <IconButton className={classes.searchbarIcons}>
             <SearchIcon />
           </IconButton>
           <InputBase
             placeholder="Search mail"
             className={classes.headerInput}
           />
-          <IconButton className={classes.dropDownIcon}>
+          <IconButton
+            className={(classes.dropDownIcon, classes.searchbarIcons)}
+          >
             <ArrowDropDownIcon />
           </IconButton>
         </Paper>
@@ -53,7 +55,7 @@ const Header: React.FC<IHeader> = (props) => {
           <Box className={classes.avatarWrapper}>
             <img src={GmailLogoAlt} className={classes.logoAlt} />
             <img
-              src="https://i.pravatar.cc/300"
+              src="https://i.pravatar.cc/100"
               className={classes.randomAvatar}
             />
           </Box>

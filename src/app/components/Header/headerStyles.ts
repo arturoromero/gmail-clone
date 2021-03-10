@@ -28,6 +28,11 @@ const headerStyles: any = {
     dropDownIcon: {
         marginLeft: 'auto',
     },
+    searchbarIcons: {
+        width:' 36px',
+        height: '36px',
+        margin: '6px',
+    },
     logoAlt: {
         maxHeight: '32px',
         width: '78px',
@@ -44,6 +49,7 @@ const headerStyles: any = {
         width: '134px',
         borderRadius:'8px',
         boxShadow: 'none',
+        marginLeft: '6px',
     },
     avatarWrapper: {
         display: 'inline-block',
