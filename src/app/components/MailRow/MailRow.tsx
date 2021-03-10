@@ -1,10 +1,11 @@
-import * as React from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import { makeStyles, Box, Checkbox, IconButton } from "@material-ui/core";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import StarIcon from "@material-ui/icons/Star";
 import mailRowStyles from "./mailRowStyles";
 import { history } from "../../../App";
+import clsx from "clsx";
 
 const useStyles = makeStyles(mailRowStyles);
 
@@ -28,10 +29,21 @@ const MailRow: React.FC<IMailRow> = (props) => {
     history.push("/mail");
   };
   const classes = useStyles();
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsChecked(event.target.checked);
+  };
   return (
-    <Box key={props.id} className={classes.mailRowWrapper}>
+    <Box
+      key={props.id}
+      className={clsx(
+        !isChecked ? classes.mailRowWrapper : "--active",
+        classes.mailRowWrapper
+      )}
+    >
       <Box className={classes.rowOptions}>
-        <Checkbox />
+        <Checkbox onChange={handleChange} checked={isChecked} />
         <IconButton>
           {props.starred ? (
             <StarIcon className={classes.yelloStar} />

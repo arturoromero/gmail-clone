@@ -18,9 +18,15 @@ const mailRowStyles: any = {
                 color: '#767676',
             },
         },
+        '&.--active': {
+            backgroundColor: '#c2dbff',
+            '& svg': {
+                color: '#4e545f',
+            }
+        }
     },
     yelloStar: {
-        color: '#f4c84b',
+        color: '#f4c84b !important',
     },
     rowOptions: {
         display: 'flex',

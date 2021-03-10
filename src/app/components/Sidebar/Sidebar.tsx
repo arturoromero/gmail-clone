@@ -10,13 +10,28 @@ import LabelIcon from "@material-ui/icons/Label";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import sidebarStyles from "./sidebarStyles";
 import SidebarItem from "./SidebarItem";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles(sidebarStyles);
 
 interface ISidebar {}
 
 const Sidebar: React.FC<ISidebar> = (props) => {
+  const { getMailList } = useSelector((state) => ({
+    getMailList: state,
+  }));
   const classes = useStyles();
+  const mailList: any = getMailList;
+  const mailItems: [] = mailList.mailList.data;
+
+  const getTags = (mailItems: any) => {
+    let tags: any[] = [];
+    mailItems.map((mail: any, i: any) => tags.push(mail.tags));
+    return [].concat.apply([], tags).filter(function (elem, index, self) {
+      return self.indexOf(elem) === index;
+    });
+  };
+  const obtainTags = getTags(mailItems);
   return (
     <Box className={classes.sidebarWrapper}>
       <Box className={classes.composeButtonWrapper}>
@@ -41,6 +56,16 @@ const Sidebar: React.FC<ISidebar> = (props) => {
       <SidebarItem Icon={SendIcon} title={"Sent"} counter={0} />
       <SidebarItem Icon={InsertDriveFileIcon} title={"Draft"} counter={0} />
       <SidebarItem Icon={LabelIcon} title={"Notes"} counter={0} />
+      {obtainTags.map((tags: any, i: any) => (
+        <SidebarItem
+          isTag
+          tag={tags}
+          key={tags}
+          Icon={LabelIcon}
+          title={tags}
+          counter={0}
+        />
+      ))}
       <SidebarItem Icon={KeyboardArrowDownIcon} title={"More"} counter={0} />
     </Box>
   );
