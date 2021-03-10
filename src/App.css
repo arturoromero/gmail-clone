@@ -1,3 +1,9 @@
 .App {
   margin: 0;
+  height: "100vh";
+}
+.appbody {
+  display: flex;
+  height: 100vh;
+  min-width: 1130px;
 }

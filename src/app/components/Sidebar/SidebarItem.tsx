@@ -2,10 +2,12 @@ import React from "react";
 import { makeStyles, Box } from "@material-ui/core";
 import sidebarStyles from "./sidebarStyles";
 import clsx from "clsx";
+import { history } from "../../../App";
 
 const useStyles = makeStyles(sidebarStyles);
 
 interface ISidebarItem {
+  location?: string;
   Icon: any;
   title: string;
   counter: number;
@@ -14,9 +16,16 @@ interface ISidebarItem {
 
 const SidebarItem: React.FC<ISidebarItem> = (props) => {
   const classes = useStyles();
-
+  const goToSection = () => {
+    if (props.location) {
+      history.push(props.location);
+    }
+  };
   return (
-    <Box className={clsx(classes.sidebarItem, props.active ? "--active" : "")}>
+    <Box
+      onClick={goToSection}
+      className={clsx(classes.sidebarItem, props.active ? "--active" : "")}
+    >
       <Box>{<props.Icon />}</Box>
       <Box
         className={clsx(

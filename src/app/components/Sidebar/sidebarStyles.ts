@@ -1,4 +1,8 @@
 const sidebarStyles: any = {
+    sidebarWrapper: {
+        width: '210px',
+        marginRight: '16px',
+    },
     plusIcon: {
         width: '32px',
         marginRight: '6px',

@@ -18,7 +18,7 @@ interface ISidebar {}
 const Sidebar: React.FC<ISidebar> = (props) => {
   const classes = useStyles();
   return (
-    <Box>
+    <Box className={classes.sidebarWrapper}>
       <Box className={classes.composeButtonWrapper}>
         <Button className={classes.composeButton}>
           <img
@@ -29,7 +29,13 @@ const Sidebar: React.FC<ISidebar> = (props) => {
           Compose
         </Button>
       </Box>
-      <SidebarItem active Icon={InboxIcon} title={"Inbox"} counter={53} />
+      <SidebarItem
+        location={"/"}
+        active
+        Icon={InboxIcon}
+        title={"Inbox"}
+        counter={53}
+      />
       <SidebarItem Icon={StarIcon} title={"Starred"} counter={10} />
       <SidebarItem Icon={WatchLaterIcon} title={"Snoozed"} counter={0} />
       <SidebarItem Icon={SendIcon} title={"Sent"} counter={0} />
