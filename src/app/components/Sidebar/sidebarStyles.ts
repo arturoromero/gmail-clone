@@ -23,6 +23,45 @@ const sidebarStyles: any = {
     },
     composeButtonWrapper: {
         margin: '12px',
+    },
+    sidebarItem: {
+        display: 'flex',
+        alignItems: 'center',
+        height: '32px',
+        padding: '0 10px',
+        borderTopRightRadius: '20px',
+        borderBottomRightRadius: '20px',
+        cursor: 'pointer',
+        color: '#767676',
+        '&:hover': {
+            backgroundColor: '#f5f5f5',
+        },
+        '& svg': {
+            fontSize: '20px',
+        },
+        '&.--active':{
+            backgroundColor: '#fce8e6',
+            color: '#d93025',
+        }
+    },
+    sidebarItemText: {
+        color: '#202124',
+        marginLeft: '16px',
+        fontSize: '.875rem',
+        height: '20px',
+        '&.--active':{
+            color: '#d93025',
+            fontWeight: '700',
+        }
+    },
+    sidebarItemCounter: {
+        color: '#202124',
+        marginLeft: 'auto',
+        fontSize: '.75rem',
+        '&.--active':{
+            color: '#d93025',
+            fontWeight: '700',
+        }
     }
 
 };

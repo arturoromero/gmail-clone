@@ -21,6 +21,7 @@ const headerStyles: any = {
         boxShadow: 'none',
         display: 'flex',
         marginRight: '10px',
+        borderRadius: '8px',
     },
     headerInput: {
         width: '100%',
