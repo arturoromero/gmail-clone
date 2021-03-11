@@ -19,3 +19,6 @@ code {
   position: sticky;
   width: 189px;
 }
+.--collapsed {
+  display: none;
+}

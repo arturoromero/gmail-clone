@@ -7,18 +7,28 @@ import MailView from "./app/components/MailView/MailView";
 import { Switch, Route, Router } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 import { createBrowserHistory } from "history";
+import { useSelector } from "react-redux";
 
 export const history = createBrowserHistory();
 
 function App() {
+  const { menuState } = useSelector((state: any) => ({
+    menuState: state.menuState,
+  }));
   return (
     <div className="App">
       <Header />
       <Grid container className="appbody">
-        <Grid className="sticky-item" item xs={2}>
+        <Grid
+          className={
+            menuState.isCollapsed ? "--collapsed sticky-item" : "sticky-item"
+          }
+          item
+          xs={2}
+        >
           <Sidebar />
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={menuState.isCollapsed ? 12 : 10}>
           <Router history={history}>
             <Switch>
               <Route exact path="/" component={MailList}></Route>

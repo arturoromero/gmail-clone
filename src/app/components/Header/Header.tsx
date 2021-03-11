@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { makeStyles, IconButton, Paper, Grid, Box } from "@material-ui/core";
 import InputBase from "@material-ui/core/InputBase";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -10,17 +10,30 @@ import AppsRoundedIcon from "@material-ui/icons/AppsRounded";
 import GmailLogo from "../../assets/images/logo.png";
 import GmailLogoAlt from "../../assets/images/logo_alt.png";
 import headerStyles from "./headerStyles";
+import { useSelector, useDispatch } from "react-redux";
+import { setMenuState } from "../../../features/mail/menuStateSlice";
 
 const useStyles = makeStyles(headerStyles);
 
 interface IHeader {}
 
 const Header: React.FC<IHeader> = (props) => {
+  const { menuState } = useSelector((state: any) => ({
+    menuState: state.menuState,
+  }));
+  const dispatch = useDispatch();
   const classes = useStyles();
+  React.useEffect(() => {
+    dispatch(setMenuState(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const collapseMenu = () => {
+    dispatch(setMenuState(menuState.isCollapsed ? false : true));
+  };
   return (
     <Grid container className={classes.container}>
       <Grid item xs={2} className={classes.header_left}>
-        <IconButton className={classes.menuIcon}>
+        <IconButton onClick={collapseMenu} className={classes.menuIcon}>
           <MenuIcon />
         </IconButton>
         <img alt="gmail logo" src={GmailLogo} className={classes.logo} />

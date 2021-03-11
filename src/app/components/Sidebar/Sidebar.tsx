@@ -23,7 +23,6 @@ const Sidebar: React.FC<ISidebar> = (props) => {
   const classes = useStyles();
   const mailList: any = getMailList;
   const mailItems: [] = mailList.mailList.data;
-
   const getTags = (mailItems: any) => {
     let tags: any[] = [];
     mailItems.map((mail: any, i: any) => tags.push(mail.tags));
