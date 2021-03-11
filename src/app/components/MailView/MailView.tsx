@@ -9,7 +9,7 @@ interface IMailView {}
 
 const MailView: React.FC<IMailView> = (props) => {
   const classes = useStyles();
-  return <Box></Box>;
+  return <Box className={classes.mailViewWrapper}></Box>;
 };
 
 export default MailView;

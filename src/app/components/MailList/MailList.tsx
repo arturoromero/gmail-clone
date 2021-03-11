@@ -41,6 +41,8 @@ const MailList: React.FC<IMailList> = (props) => {
     setChecked(checked ? false : true);
   };
   const deleteItems = () => {
+    setIsAllSelected(false);
+    setChecked(false);
     const deleteList: any[] = [];
     //@ts-ignore
     const selectedItems = [...document.getElementsByClassName("--activerow")];
@@ -111,6 +113,3 @@ const MailList: React.FC<IMailList> = (props) => {
 };
 
 export default MailList;
-function e(e: any, arg1: (any: any) => void) {
-  throw new Error("Function not implemented.");
-}

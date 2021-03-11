@@ -7,4 +7,6 @@ export default configureStore({
     mailList: mailListSlice,
     menuState: menuStateSlice,
   },
-});
+}
+);
+
