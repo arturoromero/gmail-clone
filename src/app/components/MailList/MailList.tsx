@@ -38,6 +38,7 @@ const MailList: React.FC<IMailList> = (props) => {
   const [checked, setChecked] = React.useState(false);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsAllSelected(event.target.checked);
+    setChecked(checked ? false : true);
   };
   const deleteItems = () => {
     const deleteList: any[] = [];
