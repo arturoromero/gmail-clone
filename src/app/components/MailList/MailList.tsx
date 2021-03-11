@@ -14,7 +14,10 @@ import KeyboardArrowLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useSelector, useDispatch } from "react-redux";
-import { setFilterMailList } from "../../../features/mail/mailListSlice";
+import {
+  setFilterMailList,
+  resetOriginalList,
+} from "../../../features/mail/mailListSlice";
 
 import mailListStyles from "./mailListStyles";
 
@@ -32,7 +35,7 @@ const MailList: React.FC<IMailList> = (props) => {
   const mailItems: [] = mailList.mailList.data;
 
   const [isAllSelected, setIsAllSelected] = useState(false);
-
+  const [checked, setChecked] = React.useState(false);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsAllSelected(event.target.checked);
   };
@@ -51,20 +54,24 @@ const MailList: React.FC<IMailList> = (props) => {
       });
       return 0;
     });
-    const newshit = mailItems.filter((val) => !filteredList.includes(val));
-
-    dispatch(setFilterMailList(newshit));
+    const newMailList = mailItems.filter((val) => !filteredList.includes(val));
+    dispatch(setFilterMailList(newMailList));
+  };
+  const resetMail = () => {
+    setIsAllSelected(false);
+    setChecked(false);
+    dispatch(resetOriginalList());
   };
   return (
     <Box>
       <Box className={classes.mailListWrapper}>
         <Box className={classes.mailListHeader}>
           <Box className={classes.mailListHeaderLeft}>
-            <Checkbox onChange={handleChange} />
+            <Checkbox checked={checked} onChange={handleChange} />
             <IconButton>
               <ArrowDropDownIcon />
             </IconButton>
-            <IconButton>
+            <IconButton onClick={resetMail}>
               <RefreshIcon />
             </IconButton>
             <IconButton>
