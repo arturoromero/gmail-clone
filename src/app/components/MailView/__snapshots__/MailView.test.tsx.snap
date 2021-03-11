@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MAIL TEMPLATE COMPONENT renders correctly 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-2 makeStyles-mailViewWrapper-1"
+>
+   HERE LIES A MAIL 
+</div>
+`;

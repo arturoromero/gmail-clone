@@ -6,6 +6,7 @@ import StarIcon from "@material-ui/icons/Star";
 import mailRowStyles from "./mailRowStyles";
 import { history } from "../../../App";
 import clsx from "clsx";
+import { removeHtmlTags } from "../../utils/htmlcleaner";
 
 const useStyles = makeStyles(mailRowStyles);
 
@@ -18,11 +19,6 @@ interface IMailRow {
   date: string;
   starred?: boolean;
   allselected: boolean;
-}
-function removeHtmlTags(str: string) {
-  if (str === null || str === "") return false;
-  else str = str.toString();
-  return str.replace(/(<([^>]+)>)/gi, "");
 }
 
 const MailRow: React.FC<IMailRow> = (props) => {
