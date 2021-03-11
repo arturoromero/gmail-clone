@@ -42,18 +42,15 @@ const MailList: React.FC<IMailList> = (props) => {
     const selectedItems = [...document.getElementsByClassName("--activerow")];
     selectedItems.forEach((element) => deleteList.push(element.id));
     const filteredList: any[] = [];
-    // eslint-disable-next-line array-callback-return
     mailItems.map((item: any) => {
-      // eslint-disable-next-line array-callback-return
       deleteList.map((element: any) => {
         if (item.id === element) {
           filteredList.push(item);
         }
+        return 0;
       });
+      return 0;
     });
-
-    console.log(mailItems, "ORIGINAL");
-    console.log(filteredList, "TO_REMOVE");
     const newshit = mailItems.filter((val) => !filteredList.includes(val));
 
     dispatch(setFilterMailList(newshit));

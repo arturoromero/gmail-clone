@@ -38,11 +38,11 @@ const SidebarItem: React.FC<ISidebarItem> = (props) => {
     const mailList: any = getMailList;
     const mailItems: [] = mailList.mailList.original;
     const filteredList: any[] = [];
-    // eslint-disable-next-line array-callback-return
     mailItems.map((item: any) => {
       if (item.tags.includes(props.tag)) {
         filteredList.push(item);
       }
+      return 0;
     });
     dispatch(setFilterMailList(filteredList));
   };
