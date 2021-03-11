@@ -14,3 +14,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.sticky-item {
+  display: flex;
+  position: sticky;
+  width: 189px;
+}

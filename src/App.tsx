@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Header />
       <Grid container className="appbody">
-        <Grid item xs={2}>
+        <Grid className="sticky-item" item xs={2}>
           <Sidebar />
         </Grid>
         <Grid item xs={10}>

@@ -17,6 +17,7 @@ interface IMailRow {
   tags: Array<string>;
   date: string;
   starred?: boolean;
+  allselected: boolean;
 }
 function removeHtmlTags(str: string) {
   if (str === null || str === "") return false;
@@ -34,19 +35,25 @@ const MailRow: React.FC<IMailRow> = (props) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked);
   };
+
   return (
     <Box
       key={props.id}
-      className={clsx(
-        !isChecked ? classes.mailRowWrapper : "--active",
-        classes.mailRowWrapper
-      )}
+      id={props.id.toString()}
+      className={
+        isChecked || props.allselected
+          ? clsx(classes.mailRowWrapper, "--activerow")
+          : classes.mailRowWrapper
+      }
     >
       <Box className={classes.rowOptions}>
-        <Checkbox onChange={handleChange} checked={isChecked} />
+        <Checkbox
+          onChange={handleChange}
+          checked={isChecked || props.allselected}
+        />
         <IconButton>
           {props.starred ? (
-            <StarIcon className={classes.yelloStar} />
+            <StarIcon className={classes.yellowStar} />
           ) : (
             <StarBorderIcon />
           )}
@@ -66,5 +73,4 @@ const MailRow: React.FC<IMailRow> = (props) => {
     </Box>
   );
 };
-
 export default MailRow;

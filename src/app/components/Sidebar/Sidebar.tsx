@@ -49,9 +49,9 @@ const Sidebar: React.FC<ISidebar> = (props) => {
         active
         Icon={InboxIcon}
         title={"Inbox"}
-        counter={53}
+        counter={mailItems.length}
       />
-      <SidebarItem Icon={StarIcon} title={"Starred"} counter={10} />
+      <SidebarItem Icon={StarIcon} title={"Starred"} counter={0} />
       <SidebarItem Icon={WatchLaterIcon} title={"Snoozed"} counter={0} />
       <SidebarItem Icon={SendIcon} title={"Sent"} counter={0} />
       <SidebarItem Icon={InsertDriveFileIcon} title={"Draft"} counter={0} />
