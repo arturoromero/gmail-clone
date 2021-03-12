@@ -24,13 +24,15 @@ const SidebarItem: React.FC<ISidebarItem> = (props) => {
   const { getMailList } = useSelector((state) => ({
     getMailList: state,
   }));
+
+  const { location, tag, isTag, active, title, counter, Icon } = props;
   const dispatch = useDispatch();
   const classes = useStyles();
 
   const goToSection = () => {
     dispatch(resetOriginalList());
-    if (props.location) {
-      history.push(props.location);
+    if (location) {
+      history.push(location);
     }
   };
 
@@ -39,7 +41,7 @@ const SidebarItem: React.FC<ISidebarItem> = (props) => {
     const mailItems: [] = mailList.mailList.original;
     const filteredList: any[] = [];
     mailItems.map((item: any) => {
-      if (item.tags.includes(props.tag)) {
+      if (item.tags.includes(tag)) {
         filteredList.push(item);
       }
       return 0;
@@ -49,25 +51,17 @@ const SidebarItem: React.FC<ISidebarItem> = (props) => {
   };
   return (
     <Box
-      onClick={!props.isTag ? goToSection : filterByTag}
-      className={clsx(classes.sidebarItem, props.active ? "--active" : "")}
+      onClick={!isTag ? goToSection : filterByTag}
+      className={clsx(classes.sidebarItem, active ? "--active" : "")}
     >
-      <Box>{<props.Icon />}</Box>
-      <Box
-        className={clsx(
-          classes.sidebarItemText,
-          props.active ? "--active" : ""
-        )}
-      >
-        {props.title}
+      <Box>{<Icon />}</Box>
+      <Box className={clsx(classes.sidebarItemText, active ? "--active" : "")}>
+        {title}
       </Box>
       <Box
-        className={clsx(
-          classes.sidebarItemCounter,
-          props.active ? "--active" : ""
-        )}
+        className={clsx(classes.sidebarItemCounter, active ? "--active" : "")}
       >
-        {props.active ? props.counter : ""}
+        {active ? counter : ""}
       </Box>
     </Box>
   );
