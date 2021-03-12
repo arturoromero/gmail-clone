@@ -22,8 +22,9 @@ interface IMailRow {
 }
 
 const MailRow: React.FC<IMailRow> = (props) => {
+  const { id, allselected, starred, sender, subject, body, date } = props;
   const goToMail = () => {
-    history.push(`/mail/?mail=${props.id}`);
+    history.push(`/mail/?mail=${id}`);
   };
   const classes = useStyles();
   const [isChecked, setIsChecked] = useState(false);
@@ -31,7 +32,6 @@ const MailRow: React.FC<IMailRow> = (props) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked);
   };
-  const { id, allselected, starred, sender, subject, body, date } = props;
 
   return (
     <Box
