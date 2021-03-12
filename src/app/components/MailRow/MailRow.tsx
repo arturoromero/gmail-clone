@@ -22,8 +22,8 @@ interface IMailRow {
 }
 
 const MailRow: React.FC<IMailRow> = (props) => {
-  const historyClick = () => {
-    history.push("/mail");
+  const goToMail = () => {
+    history.push(`/mail/?mail=${props.id}`);
   };
   const classes = useStyles();
   const [isChecked, setIsChecked] = useState(false);
@@ -56,10 +56,10 @@ const MailRow: React.FC<IMailRow> = (props) => {
         </IconButton>
       </Box>
       <Box></Box>
-      <Box onClick={historyClick} className={classes.rowSender}>
+      <Box onClick={goToMail} className={classes.rowSender}>
         {props.sender}
       </Box>
-      <Box className={classes.rowSubject}>
+      <Box onClick={goToMail} className={classes.rowSubject}>
         {props.subject}
         <span className={classes.rowBody}> - {removeHtmlTags(props.body)}</span>
       </Box>

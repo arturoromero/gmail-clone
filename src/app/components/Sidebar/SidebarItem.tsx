@@ -45,6 +45,7 @@ const SidebarItem: React.FC<ISidebarItem> = (props) => {
       return 0;
     });
     dispatch(setFilterMailList(filteredList));
+    history.push("/");
   };
   return (
     <Box
