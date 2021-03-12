@@ -13,7 +13,7 @@ const mailRowStyles: any = {
             color: '#d7d7d7',
         },
         '&:hover': {
-            boxShadow: 'inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%)',
+            boxShadow: '0 -1px 0 0px #e5e6e6, inset 0px 0 0 #dadce0, 0 1px 2px 0 rgb(47 51 53 / 79%), 0 1px 3px 1px rgb(60 64 67 / 98%)',
             '& svg': {
                 color: '#767676',
             },
