@@ -31,24 +31,21 @@ const MailRow: React.FC<IMailRow> = (props) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked);
   };
+  const { id, allselected, starred, sender, subject, body, date } = props;
 
   return (
     <Box
-      key={props.id}
-      id={props.id.toString()}
+      id={id.toString()}
       className={
-        isChecked || props.allselected
+        isChecked || allselected
           ? clsx(classes.mailRowWrapper, "--activerow")
           : classes.mailRowWrapper
       }
     >
       <Box className={classes.rowOptions}>
-        <Checkbox
-          onChange={handleChange}
-          checked={isChecked || props.allselected}
-        />
+        <Checkbox onChange={handleChange} checked={isChecked || allselected} />
         <IconButton>
-          {props.starred ? (
+          {starred ? (
             <StarIcon className={classes.yellowStar} />
           ) : (
             <StarBorderIcon />
@@ -57,15 +54,13 @@ const MailRow: React.FC<IMailRow> = (props) => {
       </Box>
       <Box></Box>
       <Box onClick={goToMail} className={classes.rowSender}>
-        {props.sender}
+        {sender}
       </Box>
       <Box onClick={goToMail} className={classes.rowSubject}>
-        {props.subject}
-        <span className={classes.rowBody}> - {removeHtmlTags(props.body)}</span>
+        {subject}
+        <span className={classes.rowBody}> - {removeHtmlTags(body)}</span>
       </Box>
-      <Box className={classes.rowDate}>
-        {moment(props.date).format("MMM D")}
-      </Box>
+      <Box className={classes.rowDate}>{moment(date).format("MMM D")}</Box>
     </Box>
   );
 };
