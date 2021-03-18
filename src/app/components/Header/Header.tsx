@@ -25,11 +25,11 @@ const Header: React.FC<IHeader> = (props) => {
   const classes = useStyles();
   React.useEffect(() => {
     dispatch(setMenuState(false));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
   const collapseMenu = () => {
     dispatch(setMenuState(menuState.isCollapsed ? false : true));
   };
+
   return (
     <Grid container className={classes.container}>
       <Grid item xs={2} className={classes.header_left}>

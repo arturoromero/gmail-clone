@@ -38,14 +38,17 @@ const SidebarItem: React.FC<ISidebarItem> = (props) => {
 
   const filterByTag = () => {
     const mailList: any = getMailList;
-    const mailItems: [] = mailList.mailList.original;
+    const mailItems = [...mailList.mailList.original];
     const filteredList: any[] = [];
-    mailItems.map((item: any) => {
-      if (item.tags.includes(tag)) {
-        filteredList.push(item);
+
+    mailItems.filter((item: any) => {
+      if (!item.tags.includes(tag)) {
+        return item;
       }
+      filteredList.push(item);
       return 0;
     });
+
     dispatch(setFilterMailList(filteredList));
     history.push("/");
   };

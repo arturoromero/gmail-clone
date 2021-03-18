@@ -16,13 +16,13 @@ const useStyles = makeStyles(sidebarStyles);
 
 interface ISidebar {}
 
-const Sidebar: React.FC<ISidebar> = (props) => {
+const Sidebar: React.FC<ISidebar> = () => {
   const { getMailList } = useSelector((state) => ({
     getMailList: state,
   }));
   const classes = useStyles();
   const mailList: any = getMailList;
-  const mailItems: [] = mailList.mailList.data;
+  const mailItems: [] = mailList.mailList.original;
   const getTags = (mailItems: any) => {
     let tags: any[] = [];
     mailItems.map((mail: any, i: any) => tags.push(mail.tags));
@@ -31,6 +31,7 @@ const Sidebar: React.FC<ISidebar> = (props) => {
     });
   };
   const obtainTags = getTags(mailItems);
+  console.log(obtainTags);
   return (
     <Box className={classes.sidebarWrapper}>
       <Box className={classes.composeButtonWrapper}>
@@ -59,7 +60,7 @@ const Sidebar: React.FC<ISidebar> = (props) => {
         <SidebarItem
           isTag
           tag={tags}
-          key={tags}
+          key={i}
           Icon={LabelIcon}
           title={tags}
           counter={0}
